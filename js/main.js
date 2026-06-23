@@ -11,7 +11,6 @@ isAuth.isLogged ?renderHome(root) : renderLogin(root)
 
 }
 
-
-            await renderApp()
+ await renderApp()
 
             

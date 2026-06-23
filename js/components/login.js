@@ -12,7 +12,7 @@ export const loginUi=`  <div class="login-main-container">
         <form id="loginForm" action="#" method="POST">
             <div class="form-group">
                 <label for="username">Username or Email</label>
-                <input type="text" id="username" name="username" placeholder="e.g., herr_abba" required autocomplete="username">
+                <input type="text" id="username" name="username" placeholder="e.g., username" required autocomplete="username">
             </div>
 
             <div class="form-group">
