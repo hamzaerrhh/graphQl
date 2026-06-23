@@ -1,4 +1,4 @@
-// import { login } from "../api/login.js";
+import { login } from "../api/auth.js";
 import { loginUi } from "../components/login.js";
 
 export const renderLogin=(root)=>{
@@ -15,16 +15,16 @@ form.addEventListener("submit", async (e) => {
         password: document.getElementById("password").value,
     };
 
-    // const [status, result] = await login(data);
+    const [status, result] = await login(data);
 
-    // if (status === 200) {
-    //    localStorage.setItem("token", result)
-    //     alert("Login Success!");
-    //     console.log(result);
-    // } else {
-    //     alert("Login Failed!");
-    //     console.log(result);
-    // }
+    if (status === 200) {
+       localStorage.setItem("token", result)
+        alert("Login Success!");
+    window.location.href = "/";
+    } else {
+        alert("Login Failed!");
+        console.log(result);
+    }
 });
 
 
