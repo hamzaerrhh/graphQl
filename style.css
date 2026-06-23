@@ -1,0 +1,322 @@
+/* ==========================================================================
+   1. VARIABLES & RESET
+   ========================================================================== */
+:root {
+    --bg-main: #0b0f19;         /* Deep dark background */
+    --bg-card: #151a26;         /* Slightly lighter obsidian for cards */
+    --border-color: #222b3d;    /* Subtle borders separating elements */
+    
+    /* Neon Accents */
+    --accent-cyan: #00f2fe;     /* Electric cyan */
+    --accent-teal: #05ffa1;     /* Glowing teal/green */
+    --accent-magenta: #f638dc;  /* Vibrant magenta */
+    --accent-purple: #9b51e0;   /* Deep violet */
+    --text-main: #ffffff;       /* Pure white headings */
+    --text-muted: #707e94;      /* Gray text for descriptions/labels */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    padding: 24px;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   2. DASHBOARD LAYOUT GRID
+   ========================================================================== */
+.dashboard-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+}
+
+/* ==========================================================================
+   3. CARD COMPONENT
+   ========================================================================== */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   4. TOP METRICS / MINI CARDS
+   ========================================================================== */
+.metric-card {
+    grid-column: span 3; /* 4 items across the top row */
+}
+
+@media (max-width: 900px) {
+    .metric-card { grid-column: span 6; }
+}
+@media (max-width: 600px) {
+    .metric-card { grid-column: span 12; }
+}
+
+.metric-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-top: 5px;
+}
+
+.metric-trend {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 4px;
+}
+.trend-up { color: var(--accent-teal); }
+.trend-down { color: var(--accent-magenta); }
+
+/* ==========================================================================
+   5. PROGRESS BARS & CHARTS (SKILLS / PROJECTS)
+   ========================================================================== */
+.project-row {
+    margin-bottom: 12px;
+}
+
+.project-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+}
+
+.project-name {
+    color: var(--text-main);
+    font-family: monospace; /* Kept for that slight coder feel */
+}
+
+.project-score {
+    font-weight: 600;
+}
+
+/* Progress bar track */
+.progress-bar-container {
+    background-color: #1e2538;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Progress bar fills with matching gradients */
+.progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.4s ease-in-out;
+}
+
+.fill-cyan { background: linear-gradient(90deg, #00c6ff, var(--accent-cyan)); }
+.fill-teal { background: linear-gradient(90deg, #00b09b, var(--accent-teal)); }
+.fill-magenta { background: linear-gradient(90deg, #960055, var(--accent-magenta)); }
+
+/* ==========================================================================
+   6. UTILITIES / BADGES
+   ========================================================================== */
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-validated {
+    background-color: rgba(5, 255, 161, 0.1);
+    color: var(--accent-teal);
+    border: 1px solid rgba(5, 255, 161, 0.2);
+}
+
+.badge-completed {
+    background-color: rgba(0, 242, 254, 0.1);
+    color: var(--accent-cyan);
+    border: 1px solid rgba(0, 242, 254, 0.2);
+}
+/* ==========================================================================
+   7. LOGIN PAGE SPECIFIC STYLES
+   ========================================================================== */
+.login-main-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+}
+
+/* Background Ambient Glows */
+.glow-bg {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    z-index: 1;
+    pointer-events: none;
+}
+.cyan-glow {
+    background: radial-gradient(circle, rgba(0, 242, 254, 0.12) 0%, rgba(0,0,0,0) 70%);
+    top: 15%;
+    left: 20%;
+}
+.magenta-glow {
+    background: radial-gradient(circle, rgba(246, 56, 220, 0.08) 0%, rgba(0,0,0,0) 70%);
+    bottom: 15%;
+    right: 20%;
+}
+
+/* Form Container Card */
+.login-container {
+    position: relative;
+    z-index: 2;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 40px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.login-header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #ffffff 0%, var(--text-muted) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.login-header p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Input Fields & Groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    background-color: #0e121f;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 12px rgba(0, 242, 254, 0.2);
+}
+
+/* Extra Options */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    margin-bottom: 24px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.remember-me input {
+    accent-color: var(--accent-cyan);
+}
+
+.forgot-pass {
+    color: var(--accent-cyan);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.forgot-pass:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px var(--accent-cyan);
+}
+
+/* Submit Action Button */
+.btn-submit {
+    width: 100%;
+    background: linear-gradient(90deg, var(--accent-purple), var(--accent-magenta));
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.3s;
+    margin-bottom: 20px;
+}
+
+.btn-submit:hover {
+    box-shadow: 0 0 20px rgba(246, 56, 220, 0.4);
+    transform: translateY(-1px);
+}
+
+.btn-submit:active {
+    transform: translateY(1px);
+}
+
+/* Footer Links */
+.login-footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.login-footer a {
+    color: var(--accent-teal);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-footer a:hover {
+    text-shadow: 0 0 8px var(--accent-teal);
+}
