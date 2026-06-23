@@ -1,8 +1,17 @@
 import { renderLogin } from "./render/login.js";
 import { renderHome } from "./render/home.js";
-const isAuth=false
+import { isAuthentificated } from "./api/auth.js";
 
-    const root = document.querySelector('.ui-root')
+export const renderApp=async ()=>{
+        const root = document.querySelector('.ui-root')
 
-isAuth ? renderHome(root) : renderLogin(root)
- 
+const isAuth= await isAuthentificated()
+console.log(isAuth)
+isAuth.isLogged ?renderHome(root) : renderLogin(root)
+
+}
+
+
+            await renderApp()
+
+            
