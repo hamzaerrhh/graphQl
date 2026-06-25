@@ -366,29 +366,26 @@ body {
     z-index: 2;
 }
 
-.logo-badge {
-    width: 54px;
-    height: 54px;
+.avatar-wrapper {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    overflow: hidden;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 14px;
-
-    background: linear-gradient(
-        135deg,
-        var(--accent-cyan),
-        var(--accent-purple)
-    );
-
-    color: #fff;
-    font-size: 1.4rem;
-    font-weight: 700;
+    border: 2px solid rgba(0,242,254,0.3);
 
     box-shadow:
-        0 0 20px rgba(0,242,254,0.25),
-        0 0 35px rgba(155,81,224,0.2);
+        0 0 20px rgba(0,242,254,0.2),
+        0 0 35px rgba(155,81,224,0.15);
+
+    flex-shrink: 0;
+}
+
+.header-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .welcome-section h2 {
@@ -493,4 +490,211 @@ body {
         width: 100%;
         justify-content: space-between;
     }
+}
+/* ==========================================================================
+   NO DATA / NETWORK ERROR PAGE
+   ========================================================================== */
+
+.no-data-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Glow Effects */
+.no-data-container::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    top: 10%;
+    left: 15%;
+
+    background: radial-gradient(
+        circle,
+        rgba(0,242,254,0.12) 0%,
+        transparent 70%
+    );
+}
+
+.no-data-container::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    bottom: 10%;
+    right: 15%;
+
+    background: radial-gradient(
+        circle,
+        rgba(246,56,220,0.12) 0%,
+        transparent 70%
+    );
+}
+
+.no-data-card {
+    position: relative;
+    z-index: 2;
+
+    max-width: 520px;
+    width: 100%;
+
+    text-align: center;
+
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+
+    border-radius: 20px;
+    padding: 50px 40px;
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.4),
+        0 0 30px rgba(0,242,254,0.05);
+}
+
+.no-data-icon {
+    width: 90px;
+    height: 90px;
+
+    margin: 0 auto 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 2.5rem;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        rgba(0,242,254,0.15),
+        rgba(155,81,224,0.15)
+    );
+
+    border: 1px solid rgba(0,242,254,0.2);
+
+    box-shadow:
+        0 0 20px rgba(0,242,254,0.15),
+        0 0 35px rgba(155,81,224,0.12);
+}
+
+.no-data-card h2 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+
+    background: linear-gradient(
+        90deg,
+        var(--accent-cyan),
+        var(--accent-teal)
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.no-data-card p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.retry-btn {
+    border: none;
+    cursor: pointer;
+
+    padding: 14px 28px;
+    border-radius: 10px;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: white;
+
+    background: linear-gradient(
+        90deg,
+        var(--accent-purple),
+        var(--accent-magenta)
+    );
+
+    transition: all 0.25s ease;
+}
+
+.retry-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 15px rgba(246,56,220,0.35),
+        0 0 30px rgba(246,56,220,0.2);
+}
+
+.retry-btn:active {
+    transform: translateY(1px);
+}
+
+@media (max-width: 600px) {
+    .no-data-card {
+        padding: 40px 24px;
+    }
+
+    .no-data-card h2 {
+        font-size: 1.6rem;
+    }
+
+    .no-data-icon {
+        width: 75px;
+        height: 75px;
+        font-size: 2rem;
+    }
+}
+
+
+
+.dashboard-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: #141a2a;
+  border-radius: 16px;
+  padding: 20px;
+  color: white;
+}
+
+.metric-card {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+.metric-value {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* 🔥 BIG CENTER STATS */
+.big-metric {
+  width: 260px;
+  height: 160px;
+}
+
+.big-value {
+  font-size: 48px;
+  font-weight: 800;
 }
