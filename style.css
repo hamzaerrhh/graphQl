@@ -698,3 +698,96 @@ body {
   font-size: 48px;
   font-weight: 800;
 }
+/* Container holding the side-by-side radar graphs */
+#skillsRadarContainer {
+    grid-column: span 12;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Base structural properties wrapper elements */
+.radar-wrapper-card {
+    flex: 1;
+    min-width: 320px;
+    max-width: 540px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.radar-svg-holder {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    padding: 10px;
+}
+/* Styling for the newly appended radar panels */
+.radar-card {
+    grid-column: span 6; /* Takes half-width on large screens */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 380px;
+}
+
+.radar-svg-holder {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    margin-top: 5px;
+}
+
+/* Make it wrap responsively on smaller views */
+@media (max-width: 1024px) {
+    .radar-card {
+        grid-column: span 12; /* Stacks full width on mobile/tablets */
+    }
+}
+/* Progress History Panel Layout Handles */
+.timeline-chart-card, .projects-list-card {
+    min-height: 360px;
+}
+
+/* Custom scrolling aesthetics inside your project panels card list */
+.projects-scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+.projects-scroll-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 4px;
+}
+.projects-scroll-container::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+.projects-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* "In Progress" status pulsing effect style configuration mappings */
+.in-progress-pulse {
+    animation: inline-pulse 2s infinite ease-in-out;
+}
+
+@keyframes inline-pulse {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 4px rgba(155, 81, 224, 0.2);
+    }
+    50% {
+        opacity: 0.6;
+        box-shadow: 0 0 12px rgba(155, 81, 224, 0.5);
+    }
+}
+
+/* Responsive collapse break matrix patterns */
+@media (max-width: 960px) {
+    .timeline-chart-card, .projects-list-card {
+        grid-column: span 12 !important;
+    }
+}

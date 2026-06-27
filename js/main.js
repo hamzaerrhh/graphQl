@@ -7,7 +7,9 @@ export const renderApp=async ()=>{
 
 const isAuth= await isAuthentificated()
 
-isAuth.isLogged ?renderHome(root) : renderLogin(root)
+const userID=isAuth?.userData?.user[0].id
+
+isAuth.isLogged ?renderHome(root,userID) : renderLogin(root)
 
 }
 
