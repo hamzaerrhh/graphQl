@@ -482,20 +482,25 @@ body {
     transform: translateY(1px);
 }
 
-.login-footer {
-    text-align: center;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-}
+.login-footer button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
 
-.login-footer a {
     color: var(--accent-teal);
-    text-decoration: none;
+    font: inherit;
     font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
 }
 
-.login-footer a:hover {
+.login-footer button:hover {
     text-shadow: 0 0 8px var(--accent-teal);
+}
+
+.login-footer button:focus {
+    outline: none;
 }
 
 /* ==========================================================================

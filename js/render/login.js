@@ -6,6 +6,7 @@ root.innerHTML=""
 root.innerHTML=loginPage
 
 const form = document.getElementById("loginForm");
+const trackButton=document.getElementById("request-help")
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -35,6 +36,12 @@ setTimeout(() => {
         console.log(result);
     }
 });
+
+trackButton.addEventListener("click",()=>{
+  toast({
+    type: "error",
+    message: "tl3 3nd staf."
+});})
 
 
 }

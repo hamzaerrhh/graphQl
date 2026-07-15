@@ -5,7 +5,7 @@ export const loginPage=`  <div class="login-main-container">
 
     <div class="login-container">
         <div class="login-header">
-            <h1>Test CI/CD</h1>
+            <h1>Welcome Back</h1>
             <p>Access your student analytics profile</p>
         </div>
 
@@ -29,7 +29,7 @@ export const loginPage=`  <div class="login-main-container">
         </form>
 
         <div class="login-footer">
-            Don't have an account? <a href="#">Request Access</a>
+            Don't have an account? <button id="request-help">Request Access</button>
         </div>
     </div>
     </div>
