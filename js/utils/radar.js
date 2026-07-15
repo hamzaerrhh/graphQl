@@ -56,7 +56,7 @@ export const generateRadarSVG = (data, options = {}) => {
       ${gridRings}
       ${axisLines}
       <polygon points="${polyPoints.join(" ")}" fill="${polyColor}" stroke="${strokeColor}" stroke-width="2" stroke-linejoin="round" />
-      ${textLabels}
+       ${textLabels}
     </svg>
   `;
 };

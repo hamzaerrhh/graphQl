@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>TEST SVG</h1>
+
+    <svg width="500" height="500" fill="black" x="200" y="150">
+                <circle cx="200" cy="200" r="60" fill="tomato" />
+    </svg>
+    
+</body>
+</html>
+<!--
+==========================
+   SVG Attrs
+=============================
+
+
+
+
+==========================
+SVG LEARNING NOTES
+==========================
+
+NOTE:
+- Every SVG shape is called an ELEMENT (or tag).
+- Every element has ATTRIBUTES.
+- Some attributes are shared by many elements.
+- Some attributes belong only to specific elements.
+
+=================================
+1. SVG ELEMENTS
+=================================
+
+<svg>
+- The SVG container.
+- Holds all SVG shapes.
+
+<circle>
+- Draws a circle.
+
+<rect>
+- Draws a rectangle or square.
+
+<ellipse>
+- Draws an oval (ellipse).
+
+<line>
+- Draws a straight line.
+
+<polyline>
+- Draws multiple connected lines.
+- Does NOT automatically close the shape.
+
+<polygon>
+- Like polyline, but automatically closes the shape.
+
+<path>
+- Draws almost any custom shape.
+- The most powerful SVG element.
+
+<text>
+- Displays text.
+
+<g>
+- Groups multiple SVG elements together.
+
+=================================
+2. COMMON ATTRIBUTES
+=================================
+
+width
+- Width of the SVG or shape.
+
+height
+- Height of the SVG or shape.
+
+fill
+- Color inside the shape.
+
+stroke
+- Border (outline) color.
+
+stroke-width
+- Thickness of the border.
+
+opacity
+- Transparency of the entire element.
+
+transform
+- Move, rotate, or scale an element.
+
+=================================
+3. CIRCLE ATTRIBUTES
+=================================
+
+cx
+- Center X coordinate.
+
+cy
+- Center Y coordinate.
+
+r
+- Radius.
+
+Example:
+<circle cx="100" cy="100" r="50"/>
+
+=================================
+4. RECT ATTRIBUTES
+=================================
+
+x
+- Left position.
+
+y
+- Top position.
+
+width
+- Rectangle width.
+
+height
+- Rectangle height.
+
+rx
+- Rounded horizontal corners.
+
+ry
+- Rounded vertical corners.
+
+=================================
+5. LINE ATTRIBUTES
+=================================
+
+x1
+- Starting X position.
+
+y1
+- Starting Y position.
+
+x2
+- Ending X position.
+
+y2
+- Ending Y position.
+
+=================================
+6. POLYLINE & POLYGON
+=================================
+
+points
+- List of coordinates.
+
+Example:
+points="0,0 100,50 150,100"
+
+Each pair is:
+x,y
+
+=================================
+7. PATH
+=================================
+
+d
+- Instructions for drawing.
+
+Common commands:
+
+M = Move to
+L = Line to
+H = Horizontal line
+V = Vertical line
+C = Cubic curve
+Q = Quadratic curve
+A = Arc
+Z = Close path
+
+=================================
+8. SHARED ATTRIBUTES
+=================================
+
+Most SVG elements support:
+
+fill
+stroke
+stroke-width
+opacity
+transform
+id
+class
+style
+
+=================================
+9. IMPORTANT THING TO REMEMBER
+=================================
+
+Element = Shape/Tag
+
+Attributes = Properties of that element
+
+Attribute value = The value assigned to the attribute
+
+Example:
+
+<circle cx="50" cy="50" r="20" fill="red"/>
+
+Element:
+circle
+
+Attributes:
+cx
+cy
+r
+fill
+
+Values:
+50
+50
+20
+red
+-->

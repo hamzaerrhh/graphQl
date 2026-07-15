@@ -101,7 +101,7 @@ transactions: transaction(
       }
     }
 
-    members_aggregate(distinct_on: id) {
+    members_aggregate {
       team: nodes {
         userLogin
       }

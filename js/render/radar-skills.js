@@ -1,5 +1,25 @@
 import { formatSkills } from "../utils/formaData.js";
-import { generateRadarSVG } from "../utils/radar.js";
+import { radarCompo } from "../components/graphs/radar.js";
+
+const RADAR_CONFIGS = [
+  {
+    title: "Core Proficiencies",
+    dataKey: "radar1",
+    options: {
+      polyColor: "rgba(246, 56, 220, 0.12)",
+      strokeColor: "var(--accent-magenta)"
+    }
+  },
+  {
+    title: "Technologies Stack",
+    dataKey: "radar2",
+    options: {
+      polyColor: "rgba(0, 242, 254, 0.12)",
+      strokeColor: "var(--accent-cyan)"
+    }
+  }
+];
+
 export const renderSkillsRadar = (skills) => {
   const formattedData = formatSkills(skills);
 
@@ -10,31 +30,14 @@ export const renderSkillsRadar = (skills) => {
   // 2. Create ONE unified structural parent container for all skill radars
   const skillsContainer = document.createElement("div");
   skillsContainer.id = "skillsRadarContainer";
-  // Setting CSS Grid span matching your desktop profile layout constraints
-  skillsContainer.style.cssText = "grid-column: span 12; display: flex; gap: 20px; flex-wrap: wrap; width: 100%; justify-content: center;";
+  skillsContainer.style.cssText =
+    "grid-column: span 12; display: flex; gap: 20px; flex-wrap: wrap; width: 100%; justify-content: center;";
 
-  // 3. Generate inner template rows for both card targets side by side
-  skillsContainer.innerHTML = `
-    <div class="card radar-card">
-      <div class="card-title">Core Proficiencies</div>
-      <div class="radar-svg-holder">
-        ${generateRadarSVG(formattedData.radar1, {
-          polyColor: "rgba(246, 56, 220, 0.12)",
-          strokeColor: "var(--accent-magenta)"
-        })}
-      </div>
-    </div>
-
-    <div class="card radar-card">
-      <div class="card-title">Technologies Stack</div>
-      <div class="radar-svg-holder">
-        ${generateRadarSVG(formattedData.radar2, {
-          polyColor: "rgba(0, 242, 254, 0.12)",
-          strokeColor: "var(--accent-cyan)"
-        })}
-      </div>
-    </div>
-  `;
+  // 3. Build each radar card via the reusable component
+  RADAR_CONFIGS.forEach(({ title, dataKey, options }) => {
+    const card = radarCompo(title, formattedData[dataKey], options);
+    skillsContainer.appendChild(card);
+  });
 
   // 4. Append the single parent div directly behind your Level/XP/Audit components
   dashboardContainer.appendChild(skillsContainer);

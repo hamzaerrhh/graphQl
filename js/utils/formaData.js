@@ -29,3 +29,14 @@ export const formatSkills = (skills) => {
     radar2: mapToRadarStructure(radar2Keys)
   };
 };
+
+export function formatProjects(projects) {
+  return projects.map((project) => ({
+    name: project.name_project?.name || "",
+    team_members: project.members_aggregate?.team?.map(
+      (member) => member.userLogin
+    ) || [],
+    xps: project.xp_per_project?.transactions?.[0]?.amount || 0,
+    total: project.members_aggregate?.total_members?.count || 0,
+  }));
+}

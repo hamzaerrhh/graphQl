@@ -15,6 +15,7 @@ export async function login(data) {
 }
 
 export async function isAuthentificated() {
+    
     const token = localStorage.getItem("token")
     if (!token) {
         return { isLogged: false }

@@ -1,9 +1,9 @@
 import { login } from "../api/auth.js";
-import { loginUi } from "../components/login.js";
-
+import { loginPage } from "../pages/login.js";
+import { toast } from "./toast.js";
 export const renderLogin=(root)=>{
 root.innerHTML=""
-root.innerHTML=loginUi
+root.innerHTML=loginPage
 
 const form = document.getElementById("loginForm");
 
@@ -19,10 +19,19 @@ form.addEventListener("submit", async (e) => {
 
     if (status === 200) {
        localStorage.setItem("token", result)
-        alert("Login Success!");
+   toast({
+    type: "success",
+    message: "Login successful!"
+});
+
+setTimeout(() => {
     window.location.href = "/";
+}, 250);
     } else {
-        alert("Login Failed!");
+        toast({
+    type: "error",
+    message: "Invalid email or password."
+});
         console.log(result);
     }
 });
