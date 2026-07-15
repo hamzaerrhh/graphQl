@@ -5,7 +5,7 @@ export const loginPage=`  <div class="login-main-container">
 
     <div class="login-container">
         <div class="login-header">
-            <h1>Welcome Back</h1>
+            <h1>Test CI/CD</h1>
             <p>Access your student analytics profile</p>
         </div>
 
