@@ -2,7 +2,8 @@
 
 A personal profile dashboard built with **GraphQL** that displays your Zone01 learning statistics. The application authenticates users with JWT, fetches their data from the GraphQL API, and presents it through a clean interface with interactive SVG charts.
 
-> **Live Demo:** https://graphqlzone01herr.netlify.app
+> **Live Demo netlfy:** https://grpah-ql.netlify.app/
+>**Live Demo github-pages** https://hamzaerrhh.github.io/graphQl/
 
 > **Note:** This project is only accessible to **Zone01 Talent** users with valid platform credentials.
 
