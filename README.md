@@ -4,7 +4,7 @@ A personal profile dashboard built with **GraphQL** that displays your Zone01 le
 
 > **Live Demo netlfy:** https://grpah-ql.netlify.app/
 
->**Live Demo github-pages** https://hamzaerrhh.github.io/graphQl/
+
 
 > **Note:** This project is only accessible to **Zone01 Talent** users with valid platform credentials.
 
