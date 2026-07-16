@@ -50,7 +50,7 @@ export const renderHome = async (root,userID) => {
   const auditData={
   up:userData.totalUp,
   down:userData.totalDown,
-  ration:userData.auditRatio,
+  ratio:userData.auditRatio,
   succed:userData.success,
   failed:userData.failed
 }

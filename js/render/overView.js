@@ -1,6 +1,7 @@
 import { formatXP } from "../utils/formaData.js";
 
 export const renderOverView = (xps, levels, audits) => {
+  console.log(audits)
   const overview = document.getElementById("overview");
   if (!overview) return;
 
@@ -11,7 +12,8 @@ export const renderOverView = (xps, levels, audits) => {
   dashboard.className = "dashboard-container";
 
   const total = audits.up + audits.down;
-  const ratio = total > 0 ? audits.up / total : 0;
+  const ratio = Math.ceil(audits.ratio * 10) / 10;
+
   const dash = 2 * Math.PI * 54; // circle circumference
 
   dashboard.innerHTML = `
@@ -77,7 +79,7 @@ export const renderOverView = (xps, levels, audits) => {
           <text x="60" y="55" text-anchor="middle" class="svg-label">Ratio</text>
           <!-- Center Text Value -->
           <text x="60" y="76" text-anchor="middle" class="svg-value">
-            ${ratio.toFixed(2)}
+            ${ratio.toFixed(1)}
           </text>
         </svg>
       </div>

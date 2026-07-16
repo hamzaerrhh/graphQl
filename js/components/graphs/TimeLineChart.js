@@ -2,6 +2,7 @@
 // TIMELINE CHART COMPONENT (XP Progression SVG with axes & labels)
 // ==========================================================================
 
+import { formatProjects, formatXP } from "../../utils/formaData.js";
 export const renderTimelineChart = (transactions) => {
   const sortedTx = [...transactions].sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
 
@@ -46,7 +47,7 @@ export const renderTimelineChart = (transactions) => {
     yAxisElements += `<line x1="${paddingLeft}" y1="${currentY}" x2="${width - paddingRight}" y2="${currentY}" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>`;
 
     // Formatting short value string handles (e.g. 25k)
-    const displayXp = currentXp >= 1000 ? `${(currentXp / 1000).toFixed(0)}k` : currentXp.toFixed(0);
+    const displayXp = `${formatXP(currentXp)}`;
 
     // Axis text definitions
     yAxisElements += `<text x="${paddingLeft - 12}" y="${currentY + 4}" fill="var(--text-muted)" font-family="monospace" font-size="10" text-anchor="end">${displayXp}</text>`;

@@ -1,7 +1,7 @@
 // ==========================================================================
 // PROJECTS LIST COMPONENT (Project Records with progress bars)
 // ==========================================================================
-
+import {formatXP} from "../../utils/formaData.js"
 export const renderProjectsList = (data) => {
   const maxProjectXp = Math.max(...data.map(p => p.xps || 0), 1);
 
@@ -30,7 +30,7 @@ export const renderProjectsList = (data) => {
             ${badgeMarkup}
           </div>
           <span class="project-score" style="color: ${isZeroXp ? 'var(--text-muted)' : 'var(--text-main)'}; font-size: 0.85rem;">
-            ${isZeroXp ? '0' : proj.xps.toLocaleString()} XP
+            ${isZeroXp ? '0' : formatXP(proj.xps)} 
           </span>
         </div>
         ${membersMarkup}
