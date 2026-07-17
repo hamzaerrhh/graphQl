@@ -1,7 +1,7 @@
 import { formatXP } from "../utils/formaData.js";
 
 export const renderOverView = (xps, levels, audits) => {
-  console.log(audits)
+  
   const overview = document.getElementById("overview");
   if (!overview) return;
 
@@ -12,8 +12,7 @@ export const renderOverView = (xps, levels, audits) => {
   dashboard.className = "dashboard-container";
 
   const total = audits.up + audits.down;
-  const ratio = Math.ceil(audits.ratio * 10) / 10;
-
+  const ratio = audits.ratio 
   const dash = 2 * Math.PI * 54; // circle circumference
 
   dashboard.innerHTML = `
